@@ -1,26 +1,41 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Fuentes */
+  --font-family-primary: var(--font-cormorant-garamond), serif;
+  --font-family-eb: var(--font-eb-garamond), serif;
+  --font-family-amoresa: var(--font-amoresa-regular), serif;
+  --font-family-amoresa-aged: var(--font-amoresa-aged), serif;
+  
+  /* Paleta de colores */
+  --color-cream-light: #F6F1EB;
+  --color-beige-light: #E6D6C6;
+  --color-beige-medium: #D8BFA8;
+  --color-terracotta: #C3A38C;
+  --color-sage-light: #87986A;
+  --color-sage-dark: #718355;
+  --color-gold: #E2B84B;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #000000;
+  font-family: var(--font-cormorant-garamond), serif;
+}
+
+/* Clases de utilidad para las fuentes personalizadas */
+.font-primary {
+  font-family: var(--font-cormorant-garamond), serif;
+}
+
+.font-eb {
+  font-family: var(--font-eb-garamond), serif;
+}
+
+.font-amoresa {
+  font-family: var(--font-amoresa-regular), serif;
+}
+
+.font-amoresa-aged {
+  font-family: var(--font-amoresa-aged), serif;
 }
