@@ -25,8 +25,8 @@ export function VenueGallery({
   };
 
   return (
-    <Card className="overflow-hidden shadow-2xl border-4 border-white/20 rounded-3xl backdrop-blur-sm bg-white/5">
-      <div className="relative w-full h-[450px] md:h-[550px] lg:h-[650px] bg-gradient-to-br from-white/10 to-white/5">
+    <Card className="overflow-hidden shadow-2xl border-2 sm:border-4 border-white/20 rounded-2xl sm:rounded-3xl backdrop-blur-sm bg-white/5">
+      <div className="relative w-full h-[300px] xs:h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px] bg-gradient-to-br from-white/10 to-white/5">
         <AnimatePresence mode="wait" custom={currentImageIndex}>
           <motion.div
             key={currentImageIndex}
@@ -42,7 +42,7 @@ export function VenueGallery({
               fill
               className="object-cover"
               priority={currentImageIndex === 0}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
             />
           </motion.div>
         </AnimatePresence>
@@ -55,7 +55,7 @@ export function VenueGallery({
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
               onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 md:p-4 rounded-full shadow-xl transition-all duration-300 group"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 sm:p-3 md:p-4 rounded-full shadow-xl transition-all duration-300 group"
               aria-label="Imagen anterior"
             >
               <svg
@@ -64,7 +64,7 @@ export function VenueGallery({
                 viewBox="0 0 24 24"
                 strokeWidth={2.5}
                 stroke="currentColor"
-                className="w-6 h-6 text-[#718355] group-hover:-translate-x-1 transition-transform"
+                className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#718355] group-hover:-translate-x-1 transition-transform"
               >
                 <path
                   strokeLinecap="round"
@@ -80,7 +80,7 @@ export function VenueGallery({
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
               onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 md:p-4 rounded-full shadow-xl transition-all duration-300 group"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 sm:p-3 md:p-4 rounded-full shadow-xl transition-all duration-300 group"
               aria-label="Imagen siguiente"
             >
               <svg
@@ -89,7 +89,7 @@ export function VenueGallery({
                 viewBox="0 0 24 24"
                 strokeWidth={2.5}
                 stroke="currentColor"
-                className="w-6 h-6 text-[#718355] group-hover:translate-x-1 transition-transform"
+                className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#718355] group-hover:translate-x-1 transition-transform"
               >
                 <path
                   strokeLinecap="round"
@@ -104,7 +104,7 @@ export function VenueGallery({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2"
+              className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5 sm:gap-2"
             >
               {images.map((_, index) => (
                 <button
@@ -112,8 +112,8 @@ export function VenueGallery({
                   onClick={() => setCurrentImageIndex(index)}
                   className={`transition-all duration-300 rounded-full ${
                     index === currentImageIndex
-                      ? "w-10 h-3 bg-white shadow-lg"
-                      : "w-3 h-3 bg-white/50 hover:bg-white/70"
+                      ? "w-6 sm:w-8 md:w-10 h-2 sm:h-2.5 md:h-3 bg-white shadow-lg"
+                      : "w-2 sm:w-2.5 md:w-3 h-2 sm:h-2.5 md:h-3 bg-white/50 hover:bg-white/70"
                   }`}
                   aria-label={`Ver imagen ${index + 1}`}
                 />
@@ -125,9 +125,9 @@ export function VenueGallery({
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg"
+              className="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 bg-white/90 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg"
             >
-              <span className="text-[#718355] font-medium text-sm md:text-base">
+              <span className="text-[#718355] font-medium text-xs sm:text-sm md:text-base">
                 {currentImageIndex + 1} / {images.length}
               </span>
             </motion.div>
