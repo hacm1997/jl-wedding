@@ -309,8 +309,8 @@ export function CeremonyLocation({
                 size="lg"
                 className={`w-full sm:w-auto group relative ${
                   viewMode === "map"
-                    ? "bg-white text-[#718355] shadow-2xl"
-                    : "bg-white/90 text-[#718355] hover:bg-white"
+                    ? "bg-white text-sage-dark shadow-2xl"
+                    : "bg-white/90 text-sage-dark hover:bg-white"
                 } hover:shadow-2xl transition-all duration-300 font-medium text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-7 tracking-wide shadow-xl border-0`}
               >
                 <span className="flex items-center justify-center gap-2 sm:gap-3">
@@ -425,7 +425,7 @@ export function CeremonyLocation({
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3 }}
-                      className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 px-4 w-full sm:w-auto"
+                      className="absolute bottom-4 hidden sm:block sm:bottom-6 left-1/2 -translate-x-1/2 px-4 w-full sm:w-auto"
                     >
                       <Button
                         onClick={openInGoogleMaps}
