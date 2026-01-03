@@ -3,6 +3,7 @@ import Counter from "@/components/counter";
 import { CeremonyLocation } from "../components/ceremony-location";
 import PhotoGallery from "../components/photo-gallery";
 import { WEDDING_PLACE_IMAGE } from "./constants/place-images";
+import Clothing from "@/components/clothing";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Banner />
       <Counter />
       <CeremonyLocation venueImages={WEDDING_PLACE_IMAGE} />
+      <Clothing />
       <PhotoGallery />
     </>
   );

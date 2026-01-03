@@ -16,7 +16,8 @@ const config: Config = {
       },
       colors: {
         cream: {
-          light: "#F6F1EB",
+          light: "#F6F2EC",
+          light2: "#F6F1EB",
         },
         beige: {
           light: "#E6D6C6",
