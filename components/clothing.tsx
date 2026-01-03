@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
+import Image from "next/image";
 
 export default function Clothing() {
   const ref = useRef(null);
@@ -10,9 +11,30 @@ export default function Clothing() {
   return (
     <div
       ref={ref}
-      className="bg-white flex justify-center items-center py-12 sm:py-16 md:py-24"
+      className="bg-white flex justify-center items-center py-8 md:py-10 md:pb-24"
     >
       <div>
+        <motion.div
+          initial={{ opacity: 0, rotate: -80, scale: 0.5 }}
+          animate={
+            isInView
+              ? { opacity: 1, rotate: -56, scale: 1 }
+              : { opacity: 0, rotate: -80, scale: 0.5 }
+          }
+          transition={{
+            duration: isInView ? 0.8 : 0.4,
+            delay: isInView ? 0 : 0,
+            ease: "easeOut",
+          }}
+          className="flex justify-center items-center"
+        >
+          <Image
+            src="/images/branch.webp"
+            width={60}
+            height={100}
+            alt="Branch Icon"
+          />
+        </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
@@ -21,7 +43,7 @@ export default function Clothing() {
             delay: isInView ? 0 : 0,
             ease: "easeOut",
           }}
-          className="font-amoresa text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-sage-dark text-center"
+          className="font-amoresa text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-sage-dark text-center -mt-2"
         >
           Vestimenta
         </motion.h1>
@@ -56,7 +78,9 @@ export default function Clothing() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-center gap-4 sm:gap-0 pt-7">
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+              animate={
+                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }
+              }
               transition={{
                 duration: isInView ? 0.5 : 0.3,
                 delay: isInView ? 0.6 : 0,
@@ -88,7 +112,9 @@ export default function Clothing() {
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+              animate={
+                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }
+              }
               transition={{
                 duration: isInView ? 0.5 : 0.3,
                 delay: isInView ? 0.7 : 0,
@@ -120,7 +146,9 @@ export default function Clothing() {
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+              animate={
+                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }
+              }
               transition={{
                 duration: isInView ? 0.5 : 0.3,
                 delay: isInView ? 0.8 : 0,
@@ -152,7 +180,9 @@ export default function Clothing() {
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+              animate={
+                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }
+              }
               transition={{
                 duration: isInView ? 0.5 : 0.3,
                 delay: isInView ? 0.9 : 0,
@@ -194,7 +224,7 @@ export default function Clothing() {
             delay: isInView ? 1.3 : 0,
             ease: "easeOut",
           }}
-          className="pt-16"
+          className="pt-16 pb-8 md:pb-0"
         >
           <p className="text-center text-sage-light text-2xl lg:text-3xl">
             *<span className="font-bold">Blanco</span> reservado para la novia*
