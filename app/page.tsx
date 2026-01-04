@@ -6,6 +6,7 @@ import { WEDDING_PLACE_IMAGE } from "./constants/place-images";
 import Clothing from "@/components/clothing";
 import PhotoUpload from "@/components/photo-upload";
 import Confirmation from "@/components/confirmation";
+import WaitingForYou from "@/components/waiting-for-you";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <PhotoGallery />
       <PhotoUpload />
       <Confirmation />
+      <WaitingForYou />
     </>
   );
 }

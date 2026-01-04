@@ -26,7 +26,7 @@ export default function Banner() {
           initial={{ opacity: 0, scaleY: 0 }}
           animate={{ opacity: 1, scaleY: 1 }}
           transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-          className="w-px h-8 sm:h-14 md:h-16 bg-sage-light my-2 sm:my-5 md:my-6"
+          className="w-[1.6px] h-8 sm:h-14 md:h-16 bg-sage-light my-2 sm:my-5 md:my-6"
         ></motion.div>
 
         <motion.p
