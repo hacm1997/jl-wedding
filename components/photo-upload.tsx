@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import Image from "next/image";
-import { Button } from "./ui/button";
+import UploadPhotos from "./ui/UploadPhotos";
 
 export default function PhotoUpload() {
   const ref = useRef(null);
@@ -58,9 +58,7 @@ export default function PhotoUpload() {
           ease: "easeOut",
         }}
       >
-        <Button className="rounded-none bg-amber-50 text-gold mt-12 w-auto h-24 md:h-28 text-3xl md:text-5xl px-8 md:px-10 cursor-pointer font-normal">
-          SUBE TU FOTO AQUÍ
-        </Button>
+        <UploadPhotos />
       </motion.div>
     </div>
   );

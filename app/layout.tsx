@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, EB_Garamond } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
 
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant-garamond",
@@ -42,6 +43,10 @@ export default function RootLayout({
       <body
         className={`${cormorantGaramond.variable} ${ebGaramond.variable} ${amoresaRegular.variable} ${amoresaAged.variable} antialiased`}
       >
+        <ToastContainer 
+          position="top-right" 
+          style={{ zIndex: 99999 }}
+        />
         {children}
       </body>
     </html>

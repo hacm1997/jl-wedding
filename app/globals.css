@@ -161,3 +161,12 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Estilos para react-toastify - asegurar que aparezcan por encima de modales */
+.Toastify__toast-container {
+  z-index: 99999 !important;
+}
+
+.Toastify__toast {
+  z-index: 99999 !important;
+}
