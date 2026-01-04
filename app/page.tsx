@@ -4,6 +4,7 @@ import { CeremonyLocation } from "../components/ceremony-location";
 import PhotoGallery from "../components/photo-gallery";
 import { WEDDING_PLACE_IMAGE } from "./constants/place-images";
 import Clothing from "@/components/clothing";
+import PhotoUpload from "@/components/photo-upload";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <CeremonyLocation venueImages={WEDDING_PLACE_IMAGE} />
       <Clothing />
       <PhotoGallery />
+      <PhotoUpload />
     </>
   );
 }
