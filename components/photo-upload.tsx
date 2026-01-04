@@ -40,7 +40,8 @@ export default function PhotoUpload() {
         }}
         className="text-center text-white text-4xl pt-12 font-medium"
       >
-        Te invitamos a capturar y compartir los momentos<br/>
+        Te invitamos a capturar y compartir los momentos
+        <br />
         más especiales de nuestra celebración...
       </motion.p>
 
@@ -57,7 +58,7 @@ export default function PhotoUpload() {
           ease: "easeOut",
         }}
       >
-        <Button className="rounded-none bg-amber-50 text-gold mt-12 w-auto h-28 text-5xl px-10 cursor-pointer font-normal">
+        <Button className="rounded-none bg-amber-50 text-gold mt-12 w-auto h-24 md:h-28 text-3xl md:text-5xl px-8 md:px-10 cursor-pointer font-normal">
           SUBE TU FOTO AQUÍ
         </Button>
       </motion.div>
