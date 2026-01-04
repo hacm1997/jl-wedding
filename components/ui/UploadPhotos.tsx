@@ -52,6 +52,9 @@ export default function UploadPhotos() {
           resourceType: "image",
           clientAllowedFormats: ["jpg", "png", "webp", "heic"],
           maxFileSize: 5_000_000,
+          // folder: Organiza las imágenes en la carpeta "wedding/uploads"
+          // Las nuevas imágenes subidas tendrán este folder en sus metadatos
+          folder: "wedding/uploads",
         }}
         onOpen={() => {
           // Resetear el array cuando se abre el widget
@@ -64,9 +67,12 @@ export default function UploadPhotos() {
             toast.success(
               `¡${totalUploaded} foto${totalUploaded > 1 ? "s" : ""} subida${totalUploaded > 1 ? "s" : ""} exitosamente! 📸`
             );
-            uploadedFilesRef.current.forEach((item: any) => {
-              console.log("URL:", item.secure_url);
-            });
+            
+            // Disparar evento personalizado para notificar que se subieron nuevas imágenes
+            /*window.dispatchEvent(new CustomEvent('cloudinary:imagesUploaded', {
+              detail: { count: totalUploaded }
+            }));*/
+            
             uploadedFilesRef.current = [];
           }
         }}
@@ -75,7 +81,6 @@ export default function UploadPhotos() {
           // Guardar la información de la foto subida
           if (info) {
             uploadedFilesRef.current.push(info);
-            console.log("URL:", info.secure_url);
           }
         }}
         onError={(error) => {

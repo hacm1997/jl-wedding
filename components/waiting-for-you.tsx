@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
+// import CloudinaryGalleryExample from "./cloudinary-gallery-example";
 
 export default function WaitingForYou() {
   const ref = useRef(null);
@@ -84,7 +85,9 @@ export default function WaitingForYou() {
         </motion.span>
         <motion.div
           initial={{ opacity: 0, scaleY: 0 }}
-          animate={isInView ? { opacity: 1, scaleY: 1 } : { opacity: 0, scaleY: 0 }}
+          animate={
+            isInView ? { opacity: 1, scaleY: 1 } : { opacity: 0, scaleY: 0 }
+          }
           transition={{
             duration: isInView ? 0.6 : 0.4,
             delay: isInView ? 1.2 : 0,
@@ -105,6 +108,8 @@ export default function WaitingForYou() {
           L
         </motion.span>
       </motion.div>
+
+      {/* <CloudinaryGalleryExample folder="wedding/uploads" /> */}
     </div>
   );
 }
