@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export default function Banner() {
   return (
-    <div className="bg-cream-light flex justify-center items-center py-8 sm:py-10 md:py-16 h-screen">
+    <div className="bg-cream-light flex justify-center items-center py-8 sm:py-10 md:py-16 md:h-screen">
       <div className="py-4 sm:py-6 md:py-8 px-4 sm:px-6 md:px-8 flex flex-col items-center max-w-4xl w-full">
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
