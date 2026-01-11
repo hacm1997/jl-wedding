@@ -34,7 +34,7 @@ export function Confirmation() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.3 });
   const searchParams = useSearchParams();
-  const familyCode = searchParams.get("codigo") || searchParams.get("c");
+  const familyCode = searchParams.get("code") || searchParams.get("c");
 
   // Inicializar estado basado en si hay código o no
   const [status, setStatus] = useState<Estado>(() =>
