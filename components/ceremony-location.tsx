@@ -36,7 +36,7 @@ export function CeremonyLocation({
   time = "05:00 PM",
   address = "Cartagena, Colombia",
   compliment = "Carrera 46 #30-180 - Barrio Armenia",
-  coordinates = { lat: 10.4070307, lng: -75.5093954 },
+  coordinates = { lat: -23.5475, lng: -46.6361 },
   venueImages = [],
 }: CeremonyLocationProps) {
   const [showMap, setShowMap] = useState(false);
