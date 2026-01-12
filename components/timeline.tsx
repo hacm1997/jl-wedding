@@ -172,23 +172,25 @@ export function TimelineSection() {
             ))}
           </div>
 
-          <button
-            onClick={handlePrev}
-            disabled={activeIndex === 0}
-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 md:p-4 transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
-            aria-label="Año anterior"
-          >
-            <ChevronLeft className="w-6 h-6 text-[#8B7E74]" />
-          </button>
+          <section className="hidden md:block sm:block">
+            <button
+              onClick={handlePrev}
+              disabled={activeIndex === 0}
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 md:p-4 transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
+              aria-label="Año anterior"
+            >
+              <ChevronLeft className="w-6 h-6 text-[#8B7E74]" />
+            </button>
 
-          <button
-            onClick={handleNext}
-            disabled={activeIndex === timelineData.length - 1}
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 md:p-4 transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
-            aria-label="Siguiente año"
-          >
-            <ChevronRight className="w-6 h-6 text-[#8B7E74]" />
-          </button>
+            <button
+              onClick={handleNext}
+              disabled={activeIndex === timelineData.length - 1}
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 md:p-4 transition-all disabled:opacity-30 disabled:cursor-not-allowed z-10"
+              aria-label="Siguiente año"
+            >
+              <ChevronRight className="w-6 h-6 text-[#8B7E74]" />
+            </button>
+          </section>
         </div>
 
         <div className="flex justify-center gap-2 mt-8">
