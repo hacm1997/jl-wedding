@@ -70,6 +70,18 @@ const timelineData: TimelineYear[] = [
       "/images/2024/2024_6.jpg",
     ],
   },
+  {
+    year: "2025",
+    description: "Un sí que cambió todo....",
+    photos: [
+      "/images/2025/2025_1.jpg",
+      "/images/2025/2025_2.jpg",
+      "/images/2025/2025_3.jpg",
+      "/images/2025/2025_4.jpg",
+      "/images/2025/2025_5.jpg",
+      "/images/2025/2025_6.jpg",
+    ],
+  },
 ];
 
 export function TimelineSection() {

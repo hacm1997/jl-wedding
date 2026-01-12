@@ -6,12 +6,14 @@ import WaitingForYou from "@/components/waiting-for-you";
 import { Suspense } from "react";
 import { CeremonyLocation } from "../components/ceremony-location";
 import { Confirmation } from "../components/confirmation";
+import { MusicPlayer } from "../components/music-player";
 import { TimelineSection } from "../components/timeline";
 import { WEDDING_PLACE_IMAGE } from "./constants/place-images";
 
 export default function Home() {
   return (
     <>
+      <MusicPlayer />
       <Banner />
       <Counter />
       <Suspense
