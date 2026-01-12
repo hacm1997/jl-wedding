@@ -213,7 +213,7 @@ export function Confirmation() {
             onClick={() => setShowForm(true)}
             className="rounded-none bg-transparent border-black border hover:bg-sage-dark hover:text-white text-sage-light mt-10 w-auto h-20 md:h-24 text-3xl md:text-4xl px-8 md:px-12 cursor-pointer font-normal transition-all duration-300"
           >
-            CONFIRMAR AQUÍ pe
+            CONFIRMAR AQUÍ
           </Button>
         </motion.div>
       )}
@@ -227,9 +227,7 @@ export function Confirmation() {
               <CardTitle className="text-2xl text-sage-dark">
                 Invitación para
               </CardTitle>
-              <p className="text-3xl font-amoresa text-sage-dark">
-                {family.nombre}
-              </p>
+              <p className="text-3xl text-sage-dark">{family.nombre}</p>
             </CardHeader>
 
             {/* Contenido */}
