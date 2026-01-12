@@ -148,7 +148,7 @@ export function Confirmation() {
           delay: isInView ? 0.3 : 0,
           ease: "easeOut",
         }}
-        className="font-amoresa text-4xl xl:text-5xl 2xl:text-6xl text-sage-dark text-center mt-2"
+        className="font-amoresa text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-normal text-sage-dark text-center mt-2"
       >
         Confirmación
       </motion.h2>

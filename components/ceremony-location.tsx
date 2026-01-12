@@ -228,7 +228,7 @@ export function CeremonyLocation({
             transition={{ delay: 0.6, duration: 0.6 }}
             className="space-y-2 px-4"
           >
-            <p className="text-white/70 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] font-light">
+            <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] font-bold">
               Lugar:{" "}
               <span className="text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-light tracking-wide">
                 {venue}
