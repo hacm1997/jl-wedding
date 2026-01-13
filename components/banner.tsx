@@ -5,13 +5,20 @@ import Image from "next/image";
 
 export default function Banner() {
   return (
-    <div className="relative bg-cream-light flex justify-center items-center py-8 sm:py-10 md:py-16 md:h-screen overflow-hidden">
+    <div
+      className="
+    relative
+    bg-cream-light
+    flex
+    justify-center
+    items-center
+    min-h-[100svh]
+    md:min-h-screen
+    overflow-hidden
+  "
+    >
       {/* Girasol superior izquierdo */}
-      <div
-        className="absolute left-0 pointer-events-none
-  top-[-4rem] sm:top-[-6rem] md:top-[-8rem]
-"
-      >
+      <div className="absolute top-0 left-0 pointer-events-none">
         <Image
           src="/images/girasol.webp"
           alt="Sunflower decorative left"
@@ -32,12 +39,8 @@ export default function Banner() {
         />
       </div>
 
-      {/* Girasol inferior derecho (misma imagen espejada) */}
-      <div
-        className="absolute right-0 pointer-events-none
-  top-[9rem] sm:top-[11rem] md:top-[14rem] lg:top-[16rem]
-"
-      >
+      {/* Girasol inferior derecho */}
+      <div className="absolute bottom-0 right-0 pointer-events-none">
         <Image
           src="/images/girasol.webp"
           alt="Sunflower decorative right"

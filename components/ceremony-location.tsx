@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import {
   Calendar,
   Clock,
@@ -12,6 +12,7 @@ import {
   Navigation,
   X,
 } from "lucide-react";
+import NextImage from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { VenueGallery } from "./venue-gallery";
 
@@ -46,6 +47,8 @@ export function CeremonyLocation({
 
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
+
+  const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
 
   const toggleView = (mode: "map" | "images") => {
     setHasInteracted(true);
@@ -96,7 +99,7 @@ export function CeremonyLocation({
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen bg-sage-dark flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative w-full min-h-screen bg-transparent flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
     >
       <div className="absolute inset-0 opacity-[0.03]">
         <div
@@ -116,108 +119,32 @@ export function CeremonyLocation({
           className="text-center space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12 xl:space-y-14"
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-            className="flex justify-center mb-4 sm:mb-6"
+            initial={{ opacity: 0, rotate: -80, scale: 0.5 }}
+            animate={
+              isInView
+                ? { opacity: 1, rotate: -56, scale: 1 }
+                : { opacity: 0, rotate: -80, scale: 0.5 }
+            }
+            transition={{
+              duration: isInView ? 0.8 : 0.4,
+              delay: isInView ? 0 : 0,
+              ease: "easeOut",
+            }}
+            className="flex justify-center items-center"
           >
-            <svg
-              width="80"
-              height="40"
-              viewBox="0 0 100 50"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="opacity-90 sm:w-[100px] sm:h-[50px] md:w-[110px] md:h-[55px]"
-            >
-              <motion.circle
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.3, duration: 0.4 }}
-                cx="50"
-                cy="25"
-                r="5"
-                fill="white"
-                opacity="0.95"
-              />
-              <motion.circle
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.35, duration: 0.4 }}
-                cx="40"
-                cy="22"
-                r="4.5"
-                fill="white"
-                opacity="0.85"
-              />
-              <motion.circle
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.35, duration: 0.4 }}
-                cx="60"
-                cy="22"
-                r="4.5"
-                fill="white"
-                opacity="0.85"
-              />
-              <motion.circle
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.4, duration: 0.4 }}
-                cx="32"
-                cy="27"
-                r="4"
-                fill="white"
-                opacity="0.75"
-              />
-              <motion.circle
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.4, duration: 0.4 }}
-                cx="68"
-                cy="27"
-                r="4"
-                fill="white"
-                opacity="0.75"
-              />
-              <motion.circle
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.45, duration: 0.4 }}
-                cx="26"
-                cy="34"
-                r="3.5"
-                fill="white"
-                opacity="0.65"
-              />
-              <motion.circle
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.45, duration: 0.4 }}
-                cx="74"
-                cy="34"
-                r="3.5"
-                fill="white"
-                opacity="0.65"
-              />
-              <motion.ellipse
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.5, duration: 0.4 }}
-                cx="50"
-                cy="30"
-                rx="2.5"
-                ry="4"
-                fill="white"
-                opacity="0.6"
-              />
-            </svg>
+            <NextImage
+              src="/images/branch.webp"
+              width={60}
+              height={100}
+              alt="Branch Icon"
+            />
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="font-amoresa text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-normal tracking-wide drop-shadow-sm px-4"
+            className="font-amoresa text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-normal text-sage-dark text-center px-4"
           >
             {title}
           </motion.h1>
@@ -228,9 +155,9 @@ export function CeremonyLocation({
             transition={{ delay: 0.6, duration: 0.6 }}
             className="space-y-2 px-4"
           >
-            <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] font-bold">
+            <p className="text-sage-dark text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] font-bold">
               Lugar:{" "}
-              <span className="text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-light tracking-wide">
+              <span className="text-sage-dark text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-light tracking-wide">
                 {venue}
               </span>
             </p>
@@ -247,34 +174,34 @@ export function CeremonyLocation({
               transition={{ type: "spring", stiffness: 300 }}
               className="flex flex-col items-center gap-3 sm:gap-4 group"
             >
-              <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl group-hover:bg-white/15 transition-all duration-300">
-                <Calendar className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
+              <div className="bg-sage-dark/10 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl group-hover:bg-white/15 transition-all duration-300">
+                <Calendar className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-sage-dark" />
               </div>
-              <div className="text-center space-y-1">
-                <p className="text-white/70 text-xs sm:text-sm uppercase tracking-widest">
+              <div className="text-center space-y-1 text-sage-dark">
+                <p className="text-sage-dark/70 text-xs sm:text-sm uppercase tracking-widest">
                   Fecha
                 </p>
-                <p className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light">
+                <p className="text-sage-dark text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold">
                   {date}
                 </p>
               </div>
             </motion.div>
 
-            <div className="hidden sm:block h-16 md:h-20 lg:h-24 w-px bg-white/30" />
+            <div className="hidden sm:block h-16 md:h-20 lg:h-24 w-px bg-sage-dark/30" />
 
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
               className="flex flex-col items-center gap-3 sm:gap-4 group"
             >
-              <div className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl group-hover:bg-white/15 transition-all duration-300">
-                <Clock className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
+              <div className="bg-sage-dark/10 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl group-hover:bg-sage-dark/15 transition-all duration-300">
+                <Clock className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-sage-dark" />
               </div>
-              <div className="text-center space-y-1">
-                <p className="text-white/70 text-xs sm:text-sm uppercase tracking-widest">
+              <div className="text-center space-y-1 text-sage-dark">
+                <p className="text-sage-dark/70 text-xs sm:text-sm uppercase tracking-widest">
                   Hora
                 </p>
-                <p className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light">
+                <p className="text-sage-dark text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold">
                   {time}
                 </p>
               </div>
@@ -285,10 +212,10 @@ export function CeremonyLocation({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="inline-flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm px-4 sm:px-5 md:px-6 py-3 sm:py-4 rounded-full mx-4"
+            className="inline-flex items-center gap-2 sm:gap-3 bg-sage-dark/10 backdrop-blur-sm px-4 sm:px-5 md:px-6 py-3 sm:py-4 rounded-full mx-4"
           >
-            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white flex-shrink-0" />
-            <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-light tracking-wide text-center">
+            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0 text-sage-dark" />
+            <p className="text-sage-dark text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-light tracking-wide text-center">
               {address} - {compliment}
             </p>
           </motion.div>
@@ -307,11 +234,11 @@ export function CeremonyLocation({
               <Button
                 onClick={() => toggleView("map")}
                 size="lg"
-                className={`w-full sm:w-auto group relative ${
+                className={`w-full sm:w-auto group relative cursor-pointer ${
                   viewMode === "map"
-                    ? "bg-white text-sage-dark shadow-2xl"
+                    ? "bg-sage-dark text-white shadow-2xl"
                     : "bg-white/90 text-sage-dark hover:bg-white"
-                } hover:shadow-2xl transition-all duration-300 font-medium text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-7 tracking-wide shadow-xl border-0`}
+                } hover:shadow-2xl hover:bg-white hover:text-sage-dark border-sage-dark transition-all duration-300 font-medium text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-7 tracking-wide border-1`}
               >
                 <span className="flex items-center justify-center gap-2 sm:gap-3">
                   {viewMode === "map" ? (
@@ -337,11 +264,11 @@ export function CeremonyLocation({
               <Button
                 onClick={() => toggleView("images")}
                 size="lg"
-                className={`w-full sm:w-auto group relative ${
+                className={`w-full sm:w-auto group relative cursor-pointer ${
                   viewMode === "images"
-                    ? "bg-white text-[#718355] shadow-2xl"
-                    : "bg-white/90 text-[#718355] hover:bg-white"
-                } hover:shadow-2xl transition-all duration-300 font-medium text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-7 tracking-wide shadow-xl border-0`}
+                    ? "bg-sage-dark text-white shadow-2xl"
+                    : "bg-white/90 text-sage-dark hover:bg-white"
+                } hover:shadow-2xl hover:bg-white hover:text-sage-dark border-sage-dark transition-all duration-300 font-medium text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-7 tracking-wide border-1`}
               >
                 <span className="flex items-center justify-center gap-2 sm:gap-3">
                   {viewMode === "images" ? (
@@ -367,7 +294,7 @@ export function CeremonyLocation({
               <Button
                 onClick={openDirections}
                 size="lg"
-                className="w-full sm:w-auto group cursor-pointer bg-transparent border-2 border-white text-white hover:bg-white hover:text-sage-dark transition-all duration-300 font-medium text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-7 tracking-wide shadow-xl"
+                className="w-full sm:w-auto group cursor-pointer bg-sage-dark hover:border-1  text-white hover:bg-white hover:text-sage-dark hover:border-sage-dark transition-all duration-300 font-medium text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-7 tracking-wide"
               >
                 <Navigation className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 duration-300" />
                 Cómo Llegar

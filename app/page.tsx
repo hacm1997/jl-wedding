@@ -16,6 +16,7 @@ export default function Home() {
       <MusicPlayer />
       <Banner />
       <Counter />
+      <CeremonyLocation venueImages={WEDDING_PLACE_IMAGE} />
       <Suspense
         fallback={
           <div className="bg-white flex flex-col items-center justify-center pt-10 pb-28 min-h-[400px]">
@@ -25,7 +26,6 @@ export default function Home() {
       >
         <Confirmation />
       </Suspense>
-      <CeremonyLocation venueImages={WEDDING_PLACE_IMAGE} />
       <Clothing />
       <TimelineSection />
       <PhotoUpload />
