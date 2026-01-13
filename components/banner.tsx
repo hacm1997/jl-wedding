@@ -1,11 +1,66 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 
 export default function Banner() {
   return (
-    <div className="bg-cream-light flex justify-center items-center py-8 sm:py-10 md:py-16 md:h-screen">
-      <div className="py-4 sm:py-6 md:py-8 px-4 sm:px-6 md:px-8 flex flex-col items-center max-w-4xl w-full">
+    <div className="relative bg-cream-light flex justify-center items-center py-8 sm:py-10 md:py-16 md:h-screen overflow-hidden">
+      {/* Girasol superior izquierdo */}
+      <div
+        className="absolute left-0 pointer-events-none
+  top-[-4rem] sm:top-[-6rem] md:top-[-8rem]
+"
+      >
+        <Image
+          src="/images/girasol.webp"
+          alt="Sunflower decorative left"
+          width={700}
+          height={700}
+          className="
+      w-[260px]
+      sm:w-[340px]
+      md:w-[420px]
+      lg:w-[520px]
+      xl:w-[620px]
+      2xl:w-[720px]
+      -translate-x-1/4
+      rotate-[165deg]
+      object-contain
+    "
+          priority
+        />
+      </div>
+
+      {/* Girasol inferior derecho (misma imagen espejada) */}
+      <div
+        className="absolute right-0 pointer-events-none
+  top-[9rem] sm:top-[11rem] md:top-[14rem] lg:top-[16rem]
+"
+      >
+        <Image
+          src="/images/girasol.webp"
+          alt="Sunflower decorative right"
+          width={700}
+          height={700}
+          className="
+      w-[280px]
+      sm:w-[360px]
+      md:w-[440px]
+      lg:w-[560px]
+      xl:w-[660px]
+      2xl:w-[780px]
+      translate-x-1/4
+      rotate-[-100deg]
+      scale-x-[-1]
+      object-contain
+    "
+          priority
+        />
+      </div>
+
+      {/* Contenido */}
+      <div className="py-4 sm:py-6 md:py-8 px-4 sm:px-6 md:px-8 flex flex-col items-center max-w-4xl w-full relative z-10">
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -14,6 +69,7 @@ export default function Banner() {
         >
           ¡Nos vamos a casar!
         </motion.h1>
+
         <motion.h2
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
@@ -28,12 +84,13 @@ export default function Banner() {
         >
           Juan & Leydiana
         </motion.h2>
+
         <motion.div
           initial={{ opacity: 0, scaleY: 0, y: 20 }}
           animate={{ opacity: 1, scaleY: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
           className="w-[1.6px] h-8 sm:h-14 md:h-16 bg-sage-light my-2 sm:my-5 md:my-6"
-        ></motion.div>
+        />
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
