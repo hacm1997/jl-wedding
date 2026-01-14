@@ -222,25 +222,25 @@ export function Confirmation() {
           <Card className="border-sage-light/20">
             {/* Header */}
             <CardHeader className="text-center space-y-2">
-              <CardTitle className="text-2xl text-white">
+              <CardTitle className="text-2xl text-sage-dark">
                 Invitación para
               </CardTitle>
-              <p className="text-3xl text-white">{family.nombre}</p>
+              <p className="text-3xl text-sage-dark">{family.nombre}</p>
             </CardHeader>
 
             {/* Contenido */}
             <CardContent className="space-y-6">
               {/* Cupos */}
               <div className="text-center p-4 bg-sage-light/5 rounded-lg">
-                <p className="text-white text-lg mb-1">Cupos disponibles</p>
-                <p className="text-4xl font-amoresa text-white">
+                <p className="text-sage-dark text-lg mb-1">Cupos disponibles</p>
+                <p className="text-4xl font-amoresa text-sage-dark">
                   {family.cupos} personas
                 </p>
               </div>
 
               {/* Selector */}
               <div className="space-y-4">
-                <label className="text-white text-xl text-center block">
+                <label className="text-sage-dark text-xl text-center block">
                   ¿Cuántas personas asistirán?
                 </label>
                 <div className="flex items-center justify-center gap-6">
@@ -253,7 +253,7 @@ export function Confirmation() {
                   >
                     <Minus className="w-5 h-5" />
                   </Button>
-                  <span className="text-5xl font-amoresa text-white w-20 text-center">
+                  <span className="text-5xl font-amoresa text-sage-dark w-20 text-center">
                     {attendeeCount}
                   </span>
                   <Button
@@ -266,7 +266,7 @@ export function Confirmation() {
                     <Plus className="w-5 h-5" />
                   </Button>
                 </div>
-                <p className="text-center text-sm text-white/70">
+                <p className="text-center text-sm text-sage-dark">
                   Máximo {family.cupos} personas
                 </p>
               </div>
@@ -276,14 +276,14 @@ export function Confirmation() {
                 <Button
                   onClick={handleReject}
                   variant="outline"
-                  className="w-full border-white/30 text-white hover:bg-red-50 hover:text-red-600 hover:border-red-200 h-12 text-lg"
+                  className="w-full border-white/30 text-sage-dark hover:bg-red-50 hover:text-red-600 hover:border-red-200 h-12 text-lg"
                 >
                   No podré asistir
                 </Button>
                 <Button
                   onClick={handleConfirm}
                   disabled={attendeeCount === 0}
-                  className="w-full bg-white hover:bg-white/90 text-black h-14 text-xl"
+                  className="w-full bg-sage-dark hover:bg-white/90 text-black h-14 text-xl"
                 >
                   Confirmar
                 </Button>
@@ -296,7 +296,7 @@ export function Confirmation() {
       {/* Estado: Confirmando */}
       {status === "confirmando" && (
         <div className="mt-10 text-center">
-          <Loader2 className="w-8 h-8 animate-spin text-white mx-auto" />
+          <Loader2 className="w-8 h-8 animate-spin text-sage-dark mx-auto" />
           <p className="text-white text-lg mt-4">Registrando tu respuesta...</p>
         </div>
       )}
@@ -305,19 +305,19 @@ export function Confirmation() {
       {status === "exito" && (
         <div className="mt-10 text-center max-w-md">
           <CheckCircle2 className="w-16 h-16 text-green-600 mx-auto mb-4" />
-          <h3 className="text-3xl font-amoresa text-white mb-2">¡Gracias!</h3>
-          <p className="text-white text-xl mb-4">
+          <h3 className="text-3xl font-amoresa text-sage-dark mb-2">¡Gracias!</h3>
+          <p className="text-sage-dark text-xl mb-4">
             Tu asistencia ha sido confirmada
           </p>
           {family && (
             <div className="bg-white/5 p-4 rounded-lg">
-              <p className="text-white text-lg">
+              <p className="text-sage-dark text-lg">
                 {attendeeCount} {attendeeCount === 1 ? "persona" : "personas"}{" "}
                 de {family.nombre}
               </p>
             </div>
           )}
-          <p className="text-white text-2xl font-amoresa mt-6">
+          <p className="text-sage-dark text-2xl font-amoresa mt-6">
             ¡Te esperamos!
           </p>
         </div>
@@ -326,13 +326,13 @@ export function Confirmation() {
       {/* Estado: Rechazado */}
       {status === "rechazado" && (
         <div className="mt-10 text-center max-w-md">
-          <h3 className="text-2xl font-semibold text-white mb-2">
+          <h3 className="text-2xl font-semibold text-sage-dark mb-2">
             Respuesta registrada
           </h3>
-          <p className="text-white text-lg mb-2">
+          <p className="text-sage-dark text-lg mb-2">
             Lamentamos que no puedas asistir.
           </p>
-          <p className="text-white text-sm">
+          <p className="text-sage-dark text-sm">
             Si cambias de opinión, puedes volver a usar este enlace.
           </p>
         </div>
@@ -342,15 +342,15 @@ export function Confirmation() {
       {status === "error" && (
         <div className="mt-10 text-center max-w-md">
           <XCircle className="w-12 h-12 text-red-600 mx-auto mb-4" />
-          <h3 className="text-2xl font-semibold text-white mb-2">Error</h3>
-          <p className="text-white text-lg mb-4">
+          <h3 className="text-2xl font-semibold text-sage-dark mb-2">Error</h3>
+          <p className="text-sage-dark text-lg mb-4">
             Hubo un problema al registrar tu respuesta. Por favor intenta de
             nuevo.
           </p>
           <Button
             onClick={resetToFound}
             variant="outline"
-            className="border-white/30 text-white hover:bg-white/10"
+            className="border-white/30 text-sage-dark hover:bg-white/10"
           >
             Intentar de nuevo
           </Button>
@@ -360,10 +360,10 @@ export function Confirmation() {
       {linkExpired && status === "encontrado" && (
         <div className="mt-6 text-center max-w-md">
           <AlertCircle className="w-10 h-10 text-amber-600 mx-auto mb-3" />
-          <h4 className="text-xl font-semibold text-white mb-2">
+          <h4 className="text-xl font-semibold text-sage-dark mb-2">
             Enlace ya utilizado
           </h4>
-          <p className="text-white text-sm">
+          <p className="text-sage-dark text-sm">
             Este enlace de confirmación ya fue usado anteriormente.
           </p>
         </div>
