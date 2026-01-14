@@ -249,7 +249,7 @@ export function Confirmation() {
                     disabled={attendeeCount <= 1}
                     variant="outline"
                     size="icon"
-                    className="w-12 h-12 rounded-full border-white/30 hover:bg-white/10"
+                    className="w-12 h-12 rounded-full border-white/30 hover:bg-white/10 cursor-pointer"
                   >
                     <Minus className="w-5 h-5" />
                   </Button>
@@ -261,7 +261,7 @@ export function Confirmation() {
                     disabled={attendeeCount >= family.cupos}
                     variant="outline"
                     size="icon"
-                    className="w-12 h-12 rounded-full border-white/30 hover:bg-white/10"
+                    className="w-12 h-12 rounded-full border-white/30 hover:bg-white/10 cursor-pointer"
                   >
                     <Plus className="w-5 h-5" />
                   </Button>
@@ -276,14 +276,14 @@ export function Confirmation() {
                 <Button
                   onClick={handleReject}
                   variant="outline"
-                  className="w-full border-white/30 text-sage-dark hover:bg-red-50 hover:text-red-600 hover:border-red-200 h-12 text-lg"
+                  className="w-full border-white/30 text-sage-dark hover:bg-red-50 hover:text-red-600 hover:border-red-200 h-12 text-lg cursor-pointer"
                 >
                   No podré asistir
                 </Button>
                 <Button
                   onClick={handleConfirm}
                   disabled={attendeeCount === 0}
-                  className="w-full bg-sage-dark hover:bg-white/90 text-black h-14 text-xl"
+                  className="w-full bg-sage-dark hover:bg-sage-dark/80 text-black h-14 text-xl cursor-pointer"
                 >
                   Confirmar
                 </Button>
@@ -297,7 +297,7 @@ export function Confirmation() {
       {status === "confirmando" && (
         <div className="mt-10 text-center">
           <Loader2 className="w-8 h-8 animate-spin text-sage-dark mx-auto" />
-          <p className="text-white text-lg mt-4">Registrando tu respuesta...</p>
+          <p className="text-sage-dark text-lg mt-4">Registrando tu respuesta...</p>
         </div>
       )}
 
@@ -350,7 +350,7 @@ export function Confirmation() {
           <Button
             onClick={resetToFound}
             variant="outline"
-            className="border-white/30 text-sage-dark hover:bg-white/10"
+            className="border-white/30 text-sage-dark hover:bg-white/10 cursor-pointer"
           >
             Intentar de nuevo
           </Button>
