@@ -36,11 +36,11 @@ export default function Clothing() {
           />
         </motion.div>
         <motion.h1
-          initial={{ opacity: 0, y: -30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: -80 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -80 }}
           transition={{
             duration: isInView ? 0.7 : 0.4,
-            delay: isInView ? 0 : 0,
+            delay: isInView ? 0.3 : 0,
             ease: "easeOut",
           }}
           className="font-amoresa text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-sage-dark text-center -mt-2"
@@ -63,11 +63,11 @@ export default function Clothing() {
         {/* Sección de colores reservados */}
         <section className="flex flex-col items-center justify-center pt-4">
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: -50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
             transition={{
               duration: isInView ? 0.6 : 0.4,
-              delay: isInView ? 0.4 : 0,
+              delay: isInView ? 0.6 : 0,
               ease: "easeOut",
             }}
             className="text-sage-light text-3xl lg:text-4xl"
@@ -77,77 +77,9 @@ export default function Clothing() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-center gap-4 sm:gap-0 pt-7">
             <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
+              initial={{ opacity: 0, y: -40 }}
               animate={
-                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }
-              }
-              transition={{
-                duration: isInView ? 0.5 : 0.3,
-                delay: isInView ? 0.6 : 0,
-                ease: "easeOut",
-              }}
-              className="flex flex-col items-center justify-center gap-2"
-            >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : { scale: 0 }}
-                transition={{
-                  duration: isInView ? 0.4 : 0.3,
-                  delay: isInView ? 0.7 : 0,
-                  ease: "easeOut",
-                }}
-                className="w-20 h-20 bg-sage-light rounded-full"
-              ></motion.div>
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{
-                  duration: isInView ? 0.4 : 0.3,
-                  delay: isInView ? 0.9 : 0,
-                }}
-                className="text-sage-light text-lg lg:text-xl"
-              >
-                Verde Musgo
-              </motion.p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={
-                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }
-              }
-              transition={{
-                duration: isInView ? 0.5 : 0.3,
-                delay: isInView ? 0.7 : 0,
-                ease: "easeOut",
-              }}
-              className="flex flex-col items-center justify-center gap-2"
-            >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : { scale: 0 }}
-                transition={{
-                  duration: isInView ? 0.4 : 0.3,
-                  delay: isInView ? 0.8 : 0,
-                  ease: "easeOut",
-                }}
-                className="w-20 h-20 bg-sage-dark rounded-full"
-              ></motion.div>
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{
-                  duration: isInView ? 0.4 : 0.3,
-                  delay: isInView ? 1 : 0,
-                }}
-                className="text-sage-light text-lg lg:text-xl"
-              >
-                Verde Salvia
-              </motion.p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={
-                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }
+                isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -40 }
               }
               transition={{
                 duration: isInView ? 0.5 : 0.3,
@@ -157,31 +89,31 @@ export default function Clothing() {
               className="flex flex-col items-center justify-center gap-2"
             >
               <motion.div
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : { scale: 0 }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
                 transition={{
                   duration: isInView ? 0.4 : 0.3,
                   delay: isInView ? 0.9 : 0,
                   ease: "easeOut",
                 }}
-                className="w-20 h-20 bg-terracotta rounded-full"
+                className="w-20 h-20 bg-sage-light rounded-full"
               ></motion.div>
               <motion.p
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                initial={{ opacity: 0, y: -10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
                 transition={{
                   duration: isInView ? 0.4 : 0.3,
-                  delay: isInView ? 1.1 : 0,
+                  delay: isInView ? 1 : 0,
                 }}
                 className="text-sage-light text-lg lg:text-xl"
               >
-                Topo Claro
+                Verde Musgo
               </motion.p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
+              initial={{ opacity: 0, y: -40 }}
               animate={
-                isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }
+                isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -40 }
               }
               transition={{
                 duration: isInView ? 0.5 : 0.3,
@@ -191,21 +123,89 @@ export default function Clothing() {
               className="flex flex-col items-center justify-center gap-2"
             >
               <motion.div
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : { scale: 0 }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
                 transition={{
                   duration: isInView ? 0.4 : 0.3,
                   delay: isInView ? 1 : 0,
                   ease: "easeOut",
                 }}
-                className="w-20 h-20 bg-gold rounded-full"
+                className="w-20 h-20 bg-sage-dark rounded-full"
               ></motion.div>
               <motion.p
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                initial={{ opacity: 0, y: -10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+                transition={{
+                  duration: isInView ? 0.4 : 0.3,
+                  delay: isInView ? 1.1 : 0,
+                }}
+                className="text-sage-light text-lg lg:text-xl"
+              >
+                Verde Salvia
+              </motion.p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: -40 }}
+              animate={
+                isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -40 }
+              }
+              transition={{
+                duration: isInView ? 0.5 : 0.3,
+                delay: isInView ? 1 : 0,
+                ease: "easeOut",
+              }}
+              className="flex flex-col items-center justify-center gap-2"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+                transition={{
+                  duration: isInView ? 0.4 : 0.3,
+                  delay: isInView ? 1.1 : 0,
+                  ease: "easeOut",
+                }}
+                className="w-20 h-20 bg-terracotta rounded-full"
+              ></motion.div>
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
                 transition={{
                   duration: isInView ? 0.4 : 0.3,
                   delay: isInView ? 1.2 : 0,
+                }}
+                className="text-sage-light text-lg lg:text-xl"
+              >
+                Topo Claro
+              </motion.p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: -40 }}
+              animate={
+                isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -40 }
+              }
+              transition={{
+                duration: isInView ? 0.5 : 0.3,
+                delay: isInView ? 1.1 : 0,
+                ease: "easeOut",
+              }}
+              className="flex flex-col items-center justify-center gap-2"
+            >
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+                transition={{
+                  duration: isInView ? 0.4 : 0.3,
+                  delay: isInView ? 1.2 : 0,
+                  ease: "easeOut",
+                }}
+                className="w-20 h-20 bg-gold rounded-full"
+              ></motion.div>
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+                transition={{
+                  duration: isInView ? 0.4 : 0.3,
+                  delay: isInView ? 1.3 : 0,
                 }}
                 className="text-sage-light text-lg lg:text-xl"
               >
@@ -217,11 +217,11 @@ export default function Clothing() {
 
         {/* Sección de Nota importante */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 60 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
           transition={{
-            duration: isInView ? 0.6 : 0.4,
-            delay: isInView ? 1.3 : 0,
+            duration: isInView ? 0.7 : 0.4,
+            delay: isInView ? 1.4 : 0,
             ease: "easeOut",
           }}
           className="pt-16 pb-8 md:pb-0"
