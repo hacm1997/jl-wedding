@@ -35,13 +35,16 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        <title>Boda | Juan & Leydiana</title>
+        <title>Juan & Leydiana | Nuestra Boda</title>
 
         {/* Open Graph — FORZADO */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jl-wedding.vercel.app/" />
-        <meta property="og:title" content="Boda | Juan & Leydiana" />
-        <meta property="og:description" content="Boda de Juan y Leydiana" />
+        <meta property="og:title" content="Juan & Leydiana | Nuestra Boda" />
+        <meta
+          property="og:description"
+          content="Como dos almas que se reconocen en el camino, elegimos creer en el amor y caminar juntos. Acompáñanos a celebrar el inicio de nuestra historia para siempre."
+        />
         <meta
           property="og:image"
           content="https://jl-wedding.vercel.app/images/preview_horizontal-og-001.jpeg"

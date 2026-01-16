@@ -18,6 +18,7 @@ import {
   Familia,
   rechazarInvitacion,
 } from "../lib/supabase";
+import { AdultsOnlyNotice } from "./adults-only";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
@@ -165,7 +166,18 @@ export function Confirmation() {
         Agradecemos que confirmes tu asistencia antes del{" "}
         <strong>02 de marzo</strong>
       </motion.p>
-
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{
+          duration: isInView ? 0.7 : 0.4,
+          delay: isInView ? 0.5 : 0,
+          ease: "easeOut",
+        }}
+        className="pt-5"
+      >
+        <AdultsOnlyNotice />
+      </motion.p>
       {/* Estado: Cargando */}
       {status === "cargando" && (
         <div className="mt-10">
@@ -297,7 +309,9 @@ export function Confirmation() {
       {status === "confirmando" && (
         <div className="mt-10 text-center">
           <Loader2 className="w-8 h-8 animate-spin text-sage-dark mx-auto" />
-          <p className="text-sage-dark text-lg mt-4">Registrando tu respuesta...</p>
+          <p className="text-sage-dark text-lg mt-4">
+            Registrando tu respuesta...
+          </p>
         </div>
       )}
 
@@ -305,7 +319,9 @@ export function Confirmation() {
       {status === "exito" && (
         <div className="mt-10 text-center max-w-md">
           <CheckCircle2 className="w-16 h-16 text-green-600 mx-auto mb-4" />
-          <h3 className="text-3xl font-amoresa text-sage-dark mb-2">¡Gracias!</h3>
+          <h3 className="text-3xl font-amoresa text-sage-dark mb-2">
+            ¡Gracias!
+          </h3>
           <p className="text-sage-dark text-xl mb-4">
             Tu asistencia ha sido confirmada
           </p>

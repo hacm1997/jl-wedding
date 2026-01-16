@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import NextImage from "next/image";
 import { useEffect, useRef, useState } from "react";
+import RainOfEnvelops from "./rain-of-envelopes";
 import { VenueGallery } from "./venue-gallery";
 
 interface CeremonyLocationProps {
@@ -410,12 +411,12 @@ export function CeremonyLocation({
             }}
             className="pt-8 sm:pt-10 md:pt-12 space-y-2 sm:space-y-3 px-4"
           >
-            <p className="text-white/90 text-sm sm:text-base md:text-lg font-light tracking-wide">
+            <p className="text-sage-light text-sm sm:text-base md:text-lg font-light tracking-wide">
               Te esperamos para compartir este momento especial
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 text-white/60 text-xs sm:text-sm">
               <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-white/60" />
-              <p className="font-light text-center sm:text-left">
+              <p className="font-light text-center sm:text-left text-sage-light/90">
                 Presiona &quot;Cómo Llegar&quot; para obtener direcciones desde
                 tu ubicación
               </p>
@@ -423,6 +424,7 @@ export function CeremonyLocation({
             </div>
           </motion.div>
         </motion.div>
+        <RainOfEnvelops />
       </div>
     </section>
   );
