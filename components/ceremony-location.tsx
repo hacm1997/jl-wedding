@@ -114,8 +114,11 @@ export function CeremonyLocation({
       <div className="relative max-w-7xl w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{
+            duration: isInView ? 0.8 : 0.4,
+            ease: "easeOut",
+          }}
           className="text-center space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12 xl:space-y-14"
         >
           <motion.div
@@ -142,8 +145,12 @@ export function CeremonyLocation({
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{
+              delay: isInView ? 0.4 : 0,
+              duration: isInView ? 0.8 : 0.4,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="font-amoresa text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-normal text-sage-dark text-center px-4"
           >
             {title}
@@ -151,8 +158,11 @@ export function CeremonyLocation({
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{
+              delay: isInView ? 0.6 : 0,
+              duration: isInView ? 0.6 : 0.4,
+            }}
             className="space-y-2 px-4"
           >
             <p className="text-sage-dark text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] font-bold">
@@ -165,8 +175,11 @@ export function CeremonyLocation({
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{
+              delay: isInView ? 0.7 : 0,
+              duration: isInView ? 0.6 : 0.4,
+            }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 py-4 sm:py-6"
           >
             <motion.div
@@ -210,8 +223,11 @@ export function CeremonyLocation({
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{
+              delay: isInView ? 0.8 : 0,
+              duration: isInView ? 0.6 : 0.4,
+            }}
             className="inline-flex items-center gap-2 sm:gap-3 bg-sage-dark/10 backdrop-blur-sm px-4 sm:px-5 md:px-6 py-3 sm:py-4 rounded-full mx-4"
           >
             <MapPin className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0 text-sage-dark" />
@@ -222,8 +238,11 @@ export function CeremonyLocation({
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{
+              delay: isInView ? 0.9 : 0,
+              duration: isInView ? 0.6 : 0.4,
+            }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center pt-6 sm:pt-8 px-4"
           >
             <motion.div
@@ -383,9 +402,12 @@ export function CeremonyLocation({
           </AnimatePresence>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{
+              delay: isInView ? 1 : 0,
+              duration: isInView ? 0.8 : 0.4,
+            }}
             className="pt-8 sm:pt-10 md:pt-12 space-y-2 sm:space-y-3 px-4"
           >
             <p className="text-white/90 text-sm sm:text-base md:text-lg font-light tracking-wide">

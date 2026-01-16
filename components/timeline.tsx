@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 interface TimelineYear {
   year: string;
@@ -84,9 +84,62 @@ const timelineData: TimelineYear[] = [
   },
 ];
 
+// Componente para el efecto de escritura a máquina
+function TypewriterText({ 
+  text, 
+  className,
+  speed = 100 
+}: { 
+  text: string; 
+  className?: string;
+  speed?: number;
+}) {
+  const [displayedText, setDisplayedText] = useState("");
+  const [isComplete, setIsComplete] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  useEffect(() => {
+    if (!isInView) return;
+    
+    setDisplayedText("");
+    setIsComplete(false);
+    let currentIndex = 0;
+
+    const typeInterval = setInterval(() => {
+      if (currentIndex < text.length) {
+        setDisplayedText(text.slice(0, currentIndex + 1));
+        currentIndex++;
+      } else {
+        setIsComplete(true);
+        clearInterval(typeInterval);
+      }
+    }, speed);
+
+    return () => clearInterval(typeInterval);
+  }, [text, speed, isInView]);
+
+  return (
+    <h2 ref={ref} className={className}>
+      {displayedText}
+      {!isComplete && isInView && (
+        <motion.span
+          animate={{ opacity: [1, 0] }}
+          transition={{ duration: 0.8, repeat: Infinity }}
+          className="inline-block w-0.5 h-[0.9em] bg-sage-light ml-1 align-middle"
+        >
+          |
+        </motion.span>
+      )}
+    </h2>
+  );
+}
+
 export function TimelineSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
 
   const scrollToYear = (index: number) => {
     if (containerRef.current) {
@@ -112,18 +165,25 @@ export function TimelineSection() {
   };
 
   return (
-    <section className="relative w-full py-20 md:py-32 bg-[#FAF8F6] overflow-hidden">
+    <section 
+      ref={sectionRef}
+      className="relative w-full py-20 md:py-32 bg-[#FAF8F6] overflow-hidden"
+    >
       <div className="max-w-9xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{
+            duration: isInView ? 0.8 : 0.4,
+            delay: isInView ? 0 : 0,
+            ease: "easeOut",
+          }}
           className="mb-12 md:mb-16"
         >
-          <h2 className="font-amoresa-aged text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-normal  text-sage-light mb-8 text-center">
-            Un amor para recordar...
-          </h2>
+          <TypewriterText
+            text="Un amor para recordar..."
+            className="font-amoresa-aged text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-normal text-sage-light mb-8 text-center"
+          />
         </motion.div>
 
         <div className="relative">
@@ -132,14 +192,18 @@ export function TimelineSection() {
             className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-8 md:gap-12 pb-4"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {timelineData.map((item) => (
+            {timelineData.map((item, itemIndex) => (
               <motion.div
                 key={item.year}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6 }}
-                className="flex-shrink-0 w-full snap-center"
+                transition={{
+                  duration: 0.6,
+                  delay: itemIndex * 0.1,
+                  ease: "easeOut",
+                }}
+                className="shrink-0 w-full snap-center"
               >
                 <div className="space-y-6">
                   {/* Year Header */}
@@ -160,7 +224,11 @@ export function TimelineSection() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: photoIndex * 0.08, duration: 0.5 }}
+                        transition={{
+                          delay: photoIndex * 0.08,
+                          duration: 0.5,
+                          ease: "easeOut",
+                        }}
                         whileHover={{
                           scale: 1.05,
                           zIndex: 10,
