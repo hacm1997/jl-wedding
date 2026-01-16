@@ -9,26 +9,50 @@ import { weddingConfig } from "../config";
 export function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const hasStartedRef = useRef(false);
+  const startedRef = useRef(false);
 
+  // 🔹 Autoplay elegante al hacer scroll (solo una vez)
   useEffect(() => {
-    // Intentar reproducir automáticamente si está configurado
-    if (weddingConfig.musica.autoplay && audioRef.current) {
-      audioRef.current.play().catch(() => {
-        console.log("Autoplay bloqueado por el navegador");
-      });
-    }
+    if (!weddingConfig.musica.autoplay) return;
+
+    const unlockAudio = async () => {
+      if (startedRef.current || !audioRef.current) return;
+
+      try {
+        await audioRef.current.play();
+        setIsPlaying(true);
+        startedRef.current = true;
+        cleanup();
+      } catch {
+        // Si falla, simplemente no hacemos nada
+      }
+    };
+
+    const cleanup = () => {
+      document.removeEventListener("pointerdown", unlockAudio);
+      document.removeEventListener("keydown", unlockAudio);
+    };
+
+    document.addEventListener("pointerdown", unlockAudio, { once: true });
+    document.addEventListener("keydown", unlockAudio, { once: true });
+
+    return cleanup;
   }, []);
 
-  const toggleMusic = () => {
-    if (audioRef.current) {
+  const toggleMusic = async () => {
+    if (!audioRef.current) return;
+
+    try {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.play().catch(() => {
-          console.log("Reproducción no permitida");
-        });
+        await audioRef.current.play();
+        startedRef.current = true;
       }
       setIsPlaying(!isPlaying);
+    } catch {
+      console.log("Reproducción no permitida");
     }
   };
 
@@ -38,6 +62,7 @@ export function MusicPlayer() {
         ref={audioRef}
         src={weddingConfig.musica.archivo}
         loop
+        preload="auto"
         className="hidden"
       />
 
@@ -56,18 +81,25 @@ export function MusicPlayer() {
           onClick={toggleMusic}
           variant="outline"
           size="icon"
-          className="rounded-full w-14 h-14 border-primary/30 hover:border-primary hover:bg-primary/10 bg-background/80 backdrop-blur-md shadow-lg transition-all duration-300"
-          title={isPlaying ? "Pausar canción" : "Reproducir nuestra canción"}
+          title={isPlaying ? "Pausar música" : "Reproducir música"}
+          className="
+            w-14 h-14 rounded-full
+            bg-white
+            border-2 border-sage-dark
+            hover:bg-green-50
+            shadow-lg
+            transition-all
+          "
         >
           {isPlaying ? (
             <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
+              animate={{ scale: [1, 1.15, 1] }}
+              transition={{ duration: 1, repeat: Infinity }}
             >
-              <Music className="w-5 h-5 text-accent" />
+              <Music className="w-5 h-5 text-sage-dark" />
             </motion.div>
           ) : (
-            <VolumeX className="w-5 h-5 text-foreground/50" />
+            <VolumeX className="w-5 h-5 text-sage-dark" />
           )}
         </Button>
       </motion.div>

@@ -166,7 +166,7 @@ export function Confirmation() {
         Agradecemos que confirmes tu asistencia antes del{" "}
         <strong>02 de marzo</strong>
       </motion.p>
-      <motion.p
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{
@@ -177,7 +177,7 @@ export function Confirmation() {
         className="pt-5"
       >
         <AdultsOnlyNotice />
-      </motion.p>
+      </motion.div>
       {/* Estado: Cargando */}
       {status === "cargando" && (
         <div className="mt-10">
