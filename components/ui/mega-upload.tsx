@@ -226,7 +226,9 @@ export default function MegaImageUpload() {
           <span className="text-base md:text-2xl text-white mb-1 underline underline-offset-6">
             Elegir fotos
           </span>
-          <span className="text-xs md:text-xl font-bold text-white/90">{fileName}</span>
+          <span className="text-xs md:text-xl font-bold text-white/90">
+            {fileName}
+          </span>
         </button>
 
         <Button

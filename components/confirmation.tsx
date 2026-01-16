@@ -342,13 +342,13 @@ export function Confirmation() {
       {/* Estado: Rechazado */}
       {status === "rechazado" && (
         <div className="mt-10 text-center max-w-md">
-          <h3 className="text-2xl font-semibold text-sage-dark mb-2">
+          <h3 className="text-2xl font-semibold text-white mb-2">
             Respuesta registrada
           </h3>
-          <p className="text-sage-dark text-lg mb-2">
+          <p className="text-white text-lg mb-2">
             Lamentamos que no puedas asistir.
           </p>
-          <p className="text-sage-dark text-sm">
+          <p className="text-white text-sm">
             Si cambias de opinión, puedes volver a usar este enlace.
           </p>
         </div>
@@ -358,8 +358,8 @@ export function Confirmation() {
       {status === "error" && (
         <div className="mt-10 text-center max-w-md">
           <XCircle className="w-12 h-12 text-red-600 mx-auto mb-4" />
-          <h3 className="text-2xl font-semibold text-sage-dark mb-2">Error</h3>
-          <p className="text-sage-dark text-lg mb-4">
+          <h3 className="text-2xl font-semibold text-white mb-2">Error</h3>
+          <p className="text-white text-lg mb-4">
             Hubo un problema al registrar tu respuesta. Por favor intenta de
             nuevo.
           </p>
@@ -376,10 +376,10 @@ export function Confirmation() {
       {linkExpired && status === "encontrado" && (
         <div className="mt-6 text-center max-w-md">
           <AlertCircle className="w-10 h-10 text-amber-600 mx-auto mb-3" />
-          <h4 className="text-xl font-semibold text-sage-dark mb-2">
+          <h4 className="text-xl font-semibold text-white mb-2">
             Enlace ya utilizado
           </h4>
-          <p className="text-sage-dark text-sm">
+          <p className="text-white text-sm">
             Este enlace de confirmación ya fue usado anteriormente.
           </p>
         </div>
