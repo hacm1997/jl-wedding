@@ -11,7 +11,7 @@ const TEMP_PASSWORD = process.env.NEXT_PUBLIC_TEMPORAL_UPLOAD_PHOTOS_PASS;
 // 4 de abril de 2026, 3 pm (UTC-5)
 const TARGET_DATE = new Date("2026-04-04T15:00:00-05:00").getTime();
 
-const MAX_PHOTOS_PER_PERIOD = 5;
+const MAX_PHOTOS_PER_PERIOD = 20;
 const EXPIRATION_HOURS = 8;
 const STORAGE_KEY = "wedding_photos_upload_count";
 
