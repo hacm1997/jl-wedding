@@ -15,22 +15,6 @@ export default function PhotoUpload() {
       ref={ref}
       className="flex flex-col items-center justify-center bg-gold pt-20 pb-30"
     >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.5, rotate: -20 }}
-        animate={
-          isInView
-            ? { opacity: 1, scale: 1, rotate: 0 }
-            : { opacity: 0, scale: 0.5, rotate: -20 }
-        }
-        transition={{
-          duration: isInView ? 0.7 : 0.4,
-          delay: isInView ? 0 : 0,
-          ease: "easeOut",
-        }}
-      >
-        <Image src="/images/cam.png" alt="Cam" width={80} height={80} />
-      </motion.div>
-
       <motion.p
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -39,11 +23,10 @@ export default function PhotoUpload() {
           delay: isInView ? 0.3 : 0,
           ease: "easeOut",
         }}
-        className="text-center text-white text-4xl pt-12 font-medium"
+        className="text-center text-white text-4xl font-medium"
       >
-        Te invitamos a capturar y compartir los momentos
-        <br />
-        más especiales de nuestra celebración...
+        Comparte aquí las fotografías que hayas tomado<br />
+         para que podamos atesorarlas para siempre...
       </motion.p>
 
       <motion.div
@@ -58,6 +41,7 @@ export default function PhotoUpload() {
           delay: isInView ? 0.6 : 0,
           ease: "easeOut",
         }}
+        className="w-full"
       >
         {/*<UploadPhotos />*/}
         <MegaImageUpload />

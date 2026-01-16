@@ -170,3 +170,33 @@ body {
 .Toastify__toast {
   z-index: 99999 !important;
 }
+
+/* Estilos para el slider de preview de imágenes */
+.preview-slider {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.preview-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.preview-item {
+  width: calc(50% - 0.25rem);
+  min-width: calc(50% - 0.25rem);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.preview-item::before {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+@media (min-width: 768px) {
+  .preview-item {
+    width: calc(25% - 0.5625rem);
+    min-width: calc(25% - 0.5625rem);
+  }
+}
