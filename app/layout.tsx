@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Cormorant_Garamond, EB_Garamond } from "next/font/google";
 import localFont from "next/font/local";
 import { ToastContainer } from "react-toastify";
@@ -28,33 +27,6 @@ const amoresaAged = localFont({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Boda | Juan & Leydiana",
-  description: "Boda de Juan y Leydiana",
-  openGraph: {
-    title: "Boda | Juan & Leydiana",
-    description: "Boda de Juan y Leydiana",
-    url: "https://jl-wedding.vercel.app",
-    siteName: "Boda | Juan & Leydiana",
-    images: [
-      {
-        url: "https://jl-wedding.vercel.app/images/preview_horizontal.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "Preview vertical",
-      },
-    ],
-    locale: "es_ES",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Boda | Juan & Leydiana",
-    description: "Boda de Juan y Leydiana",
-    images: ["https://jl-wedding.vercel.app/images/preview.jpeg"],
-  },
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -62,6 +34,30 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <title>Boda | Juan & Leydiana</title>
+
+        {/* Open Graph — FORZADO */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://jl-wedding.vercel.app/" />
+        <meta property="og:title" content="Boda | Juan & Leydiana" />
+        <meta property="og:description" content="Boda de Juan y Leydiana" />
+        <meta
+          property="og:image"
+          content="https://jl-wedding.vercel.app/images/preview.jpeg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/jpeg" />
+
+        {/* Fallback Twitter (ayuda a WhatsApp) */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
+          content="https://jl-wedding.vercel.app/images/preview.jpeg"
+        />
+      </head>
+
       <body
         className={`${cormorantGaramond.variable} ${ebGaramond.variable} ${amoresaRegular.variable} ${amoresaAged.variable} antialiased`}
       >
