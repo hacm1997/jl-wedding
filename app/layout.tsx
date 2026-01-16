@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, EB_Garamond } from "next/font/google";
 import localFont from "next/font/local";
-import "./globals.css";
 import { ToastContainer } from "react-toastify";
+import "./globals.css";
 
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant-garamond",
@@ -29,8 +29,30 @@ const amoresaAged = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Juan & Leydiana",
+  title: "Boda | Juan & Leydiana",
   description: "Boda de Juan y Leydiana",
+  openGraph: {
+    title: "Boda | Juan & Leydiana",
+    description: "Boda de Juan y Leydiana",
+    url: "https://jl-wedding.vercel.app",
+    siteName: "Boda | Juan & Leydiana",
+    images: [
+      {
+        url: "https://jl-wedding.vercel.app/images/preview.jpeg",
+        width: 1080,
+        height: 1920,
+        alt: "Preview vertical",
+      },
+    ],
+    locale: "es_ES",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Boda | Juan & Leydiana",
+    description: "Boda de Juan y Leydiana",
+    images: ["https://jl-wedding.vercel.app/images/preview.jpeg"],
+  },
 };
 
 export default function RootLayout({
@@ -43,10 +65,7 @@ export default function RootLayout({
       <body
         className={`${cormorantGaramond.variable} ${ebGaramond.variable} ${amoresaRegular.variable} ${amoresaAged.variable} antialiased`}
       >
-        <ToastContainer 
-          position="top-right" 
-          style={{ zIndex: 99999 }}
-        />
+        <ToastContainer position="top-right" style={{ zIndex: 99999 }} />
         {children}
       </body>
     </html>
