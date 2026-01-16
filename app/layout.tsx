@@ -44,11 +44,15 @@ export default function RootLayout({
         <meta property="og:description" content="Boda de Juan y Leydiana" />
         <meta
           property="og:image"
-          content="https://jl-wedding.vercel.app/images/preview.jpeg"
+          content="https://jl-wedding.vercel.app/images/preview_horizontal-og-001.jpeg"
         />
+        <meta
+          property="og:image:secure_url"
+          content="https://jl-wedding.vercel.app/images/preview_horizontal-og-001.jpeg"
+        />
+        <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:type" content="image/jpeg" />
 
         {/* Fallback Twitter (ayuda a WhatsApp) */}
         <meta name="twitter:card" content="summary_large_image" />
