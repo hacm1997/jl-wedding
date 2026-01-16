@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     siteName: "Boda | Juan & Leydiana",
     images: [
       {
-        url: "https://jl-wedding.vercel.app/images/preview.jpeg",
-        width: 1080,
-        height: 1920,
+        url: "https://jl-wedding.vercel.app/images/preview_horizontal.jpeg",
+        width: 1200,
+        height: 630,
         alt: "Preview vertical",
       },
     ],
