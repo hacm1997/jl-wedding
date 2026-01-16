@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import Image from "next/image";
 import UploadPhotos from "./ui/UploadPhotos";
+import MegaImageUpload from "./ui/mega-upload";
 
 export default function PhotoUpload() {
   const ref = useRef(null);
@@ -58,7 +59,8 @@ export default function PhotoUpload() {
           ease: "easeOut",
         }}
       >
-        <UploadPhotos />
+        {/*<UploadPhotos />*/}
+        <MegaImageUpload />
       </motion.div>
     </div>
   );
